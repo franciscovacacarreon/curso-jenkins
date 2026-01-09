@@ -28,3 +28,17 @@ docker run -d --name jenkins -p 8080:8080 -p 50000:50000 -v jenkins_home:/var/je
 # Solucionar error de instalación
 docker run -d --name jenkins -p 9090:8080 -p 50000:50000 -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts --argumentsRealm.passwd.admin=admin --argumentsRealm.roles.admin=admin --httpPort=8080
 
+# Builds
+- Es una ejecución de un job
+- Cada vez que haga una ejecución se va a generar un build
+    - Obtener el código fuente
+    - Ejecuta los pasos que has definido
+    - Registra la salida en el cosole 
+    - Guardar los artefactos (Opcional)
+    - Muestra el resultado del build en la interfaz
+
+# Disparadores automáticos
+- Polling SCM -> Revisar preiodicamente si hay cambios en el repo git
+- Webhook -> Dispara el job cuando hay un cambio en el código
+- Programación cron -> Se ejecuta en intervalos de tiempo
+- Disparo por otro job -> un job podría ejecutar otro job cuando se termine
